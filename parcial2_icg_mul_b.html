@@ -1,0 +1,41 @@
+<input type=text size=2 id='boton'/> 
+<button onclick='main()'>Ejecutar</button> DIGITE CUANTOS CUADROS DEBERAN APARECER EN PANTALLA
+<canvas id='preparcial'width=1500 height=1000></canvas> 
+<script>
+
+/*DIEGO FERNANDO CORTES PIEDRA 6000554 - PRE-PARCIAL*/
+
+function color(r, g, b){ /*Esta funcion determina los colores rgb en porcentaje, como lo explico el profeso en clase*/
+        return 'rgba(' + r*2.55 + ',' + g*2.55 + ',' + b*2.55 + ')'
+	}
+function main(){ /*Se usa esto para que en la pestaña se agregue un "tablero" donde puedan aparecer las figuras*/
+		var canvas = document.getElementById('preparcial')
+		var ctx = canvas.getContext('2d');
+        
+        
+var x = parseInt(document.getElementById('boton').value) /*Esta linea de codigo guarda el dato suministrado del boton en la variable "x"*/
+
+			for( p=0 ; p<x ; p++ ){ /*Aqui se maneja la cantidad de rectangulos que apareceran*/
+			for( k=0 ; k<3 ; k++ ){ /*Aqui se maneja el color de los rectangulos*/
+			   
+			if(k==0){
+				ctx.fillStyle=color(0,0,100*(x-p)/x) /*Forma para llamar al color azul*/
+ 
+				}else 
+                    if(k==1){
+			                 ctx.fillStyle=color(0,100*(x-p)/x,0) /*Forma para llamar al color el verde*/
+					        }else 
+                                if(k==2){
+						                 ctx.fillStyle=color(100*(x-p)/x,0,0)/*Forma para llamar al color azul*/
+						                }
+         
+                                         ctx.fillRect(k*500, p*500/x, 500, 500/x) /*Es lo mas importante ya que con esto se muestran los rectangulos, y las variables son para las posicion de los rectangulos y su altura y anchura */
+
+			                       }
+                                 
+                                   }
+             } 
+
+/*FIN DEL CODIGO :)*/   
+          
+</script>
